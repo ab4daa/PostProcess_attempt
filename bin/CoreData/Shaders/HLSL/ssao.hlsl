@@ -28,7 +28,6 @@ float3x3 rotateNormalVecToAnother(float3 f, float3 t) {
 }
 
 float3 normal_from_depth(float depth, float2 texcoords) {
-    //screen size comes from depth RT size
     float2 offset1 = float2(0.0, 1.0) * cGBufferInvSize;
     float2 offset2 = float2(1.0, 0.0) * cGBufferInvSize;
     
@@ -50,7 +49,6 @@ void PS(float2 iScreenPos : TEXCOORD0,
     const float aoStrength = 1.0;
     
     float2 tx = iScreenPos;
-    //screen size comes from depth RT size
     float2 px = cGBufferInvSize;
     
     float depth = Sample2D(EmissiveMap, iScreenPos).r;
