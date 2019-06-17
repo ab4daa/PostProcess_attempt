@@ -34,4 +34,10 @@
         <parameter name="PosterizationLevel" value="8" />
         <texture unit="diffuse" name="viewport" />
     </command>
+    <command type="quad" tag="FXAA3" vs="FXAA3" ps="FXAA3" psdefines="FXAA_QUALITY_PRESET=12" output="viewport">
+        <texture unit="diffuse" name="viewport" />
+    </command>
+    <command type="quad" tag="film_grain" vs="film_grain" ps="film_grain">
+        <texture unit="diffuse" name="viewport" />
+    </command>
 </renderpath>

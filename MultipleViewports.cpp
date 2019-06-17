@@ -171,13 +171,13 @@ void MultipleViewports::SetupViewports()
     auto* cache = GetSubsystem<ResourceCache>();
 	SharedPtr<RenderPath> effectRenderPath = MakeShared<RenderPath>();
 	effectRenderPath->Load(cache->GetResource<XMLFile>("RenderPaths/myForwardDepth.xml"));
-	effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/FXAA3.xml"));
 	effectRenderPath->SetEnabled("ao_only", false);
     effectRenderPath->SetEnabled("ssao", false);
 	effectRenderPath->SetEnabled("oil_paint", false);
     effectRenderPath->SetEnabled("edge_detect", false);
 	effectRenderPath->SetEnabled("posterization", false);
 	effectRenderPath->SetEnabled("FXAA3", false);
+	effectRenderPath->SetEnabled("film_grain", false);
     viewport->SetRenderPath(effectRenderPath);
 }
 
@@ -294,6 +294,7 @@ void MultipleViewports::CreateUI()
 	CreateChkBox(vLayout, "edge_detect");
 	CreateChkBox(vLayout, "posterization");
 	CreateChkBox(vLayout, "FXAA3");
+	CreateChkBox(vLayout, "film_grain");
 }
 
 void MultipleViewports::HandlePostProcess(StringHash eventType, VariantMap& eventData)
